@@ -4,6 +4,7 @@ services:
     httpd:
         build: ./docker/httpd
         container_name: httpd-container
+        command: bash -c "sh /run-httpd.sh"
         dns:
           - 8.8.8.8
           - 9.9.9.9
@@ -18,4 +19,3 @@ services:
           - "8009"
         volumes:
           - ./target/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
-        
